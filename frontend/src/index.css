@@ -1,0 +1,65 @@
+:root {
+  /* === Design tokens: "Case File Desk" === */
+  --paper: #EDE8DC;
+  --paper-card: #F7F4EB;
+  --paper-line: #D9D2BF;
+  --ink: #2B2620;
+  --ink-soft: #6B6558;
+  --kraft: #B8895F;
+  --kraft-dark: #8C6640;
+
+  --stamp-applied: #6B6558;
+  --stamp-interview: #2F5D8A;
+  --stamp-offer: #4C7A51;
+  --stamp-rejected: #A6402F;
+
+  --mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
+  --serif: 'IBM Plex Serif', Georgia, serif;
+
+  color-scheme: light;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.55;
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(43,38,32,0.05) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a { color: var(--kraft-dark); }
+
+button, input, select { font-family: inherit; }
+
+/* Focus visibility, kept even through custom styling */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--kraft-dark);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

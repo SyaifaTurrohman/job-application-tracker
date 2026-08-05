@@ -1,0 +1,646 @@
+.app {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+/* --- Header, styled like a folder tab / case file title --- */
+.app-header {
+  margin-bottom: 40px;
+}
+
+.app-eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--kraft-dark);
+  margin: 0 0 6px;
+}
+
+.app-title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 34px;
+  letter-spacing: -0.01em;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+
+.app-subtitle {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* --- Form: styled like a ticket / intake slip --- */
+.form-card {
+  position: relative;
+  background: var(--paper-card);
+  border: 1px solid var(--paper-line);
+  border-radius: 3px;
+  padding: 22px 22px 20px;
+  margin-bottom: 36px;
+  box-shadow: 0 1px 0 rgba(43,38,32,0.04);
+}
+
+.form-title {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-title::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--kraft);
+  display: inline-block;
+}
+
+.field-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+}
+
+.field {
+  margin-bottom: 14px;
+}
+
+.text-input {
+  display: block;
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid var(--paper-line);
+  border-radius: 2px;
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 15px;
+}
+
+.text-input:focus {
+  border-color: var(--kraft-dark);
+}
+
+.text-input::placeholder {
+  color: #B4AC98;
+}
+
+.submit-btn {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  background: var(--ink);
+  color: var(--paper-card);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: var(--kraft-dark);
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Perforated divider between form and list, ticket-stub feel --- */
+.divider {
+  border: none;
+  border-top: 1px dashed var(--paper-line);
+  margin: 0 0 24px;
+}
+
+/* --- Empty / loading / error states --- */
+.state-message {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-soft);
+  padding: 24px 0;
+}
+
+.state-message.error {
+  color: var(--stamp-rejected);
+}
+
+/* --- Application card, styled like an index card --- */
+.app-card {
+  position: relative;
+  background: var(--paper-card);
+  border: 1px solid var(--paper-line);
+  border-radius: 3px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+
+.app-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.app-card-index {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+  letter-spacing: 0.06em;
+  margin: 0 0 4px;
+}
+
+.app-card-company {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 19px;
+  margin: 0;
+  color: var(--ink);
+}
+
+.app-card-position {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin: 2px 0 0;
+}
+
+.app-card-meta {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin: 14px 0 0;
+}
+
+.app-card-link {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 12px;
+  margin-top: 6px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--kraft);
+}
+
+.app-card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.status-select {
+  flex: 1;
+  padding: 7px 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid var(--paper-line);
+  border-radius: 2px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.delete-btn {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 7px 12px;
+  background: transparent;
+  color: var(--stamp-rejected);
+  border: 1px solid var(--stamp-rejected);
+  border-radius: 2px;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.15s ease;
+}
+
+.delete-btn:hover {
+  opacity: 1;
+}
+
+/* --- Toast notification: styled like a stamped notice slip --- */
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1000;
+  max-width: 320px;
+}
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--paper-card);
+  border: 1px solid var(--paper-line);
+  border-left: 4px solid var(--ink-soft);
+  border-radius: 2px;
+  padding: 12px 14px;
+  box-shadow: 0 4px 14px rgba(43,38,32,0.14);
+  cursor: pointer;
+  animation: toast-in 0.2s ease-out;
+}
+
+.toast--success {
+  border-left-color: var(--stamp-offer);
+}
+
+.toast--error {
+  border-left-color: var(--stamp-rejected);
+}
+
+.toast-marker {
+  width: 6px;
+  height: 6px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.toast-message {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0;
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Confirm dialog: styled like a paper card laid on a dimmed desk --- */
+.confirm-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(43, 38, 32, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  padding: 24px;
+}
+
+.confirm-dialog {
+  background: var(--paper-card);
+  border: 1px solid var(--paper-line);
+  border-radius: 3px;
+  padding: 24px;
+  max-width: 360px;
+  width: 100%;
+  box-shadow: 0 12px 32px rgba(43,38,32,0.25);
+}
+
+.confirm-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stamp-rejected);
+  margin: 0 0 10px;
+}
+
+.confirm-message {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.5;
+  margin: 0 0 22px;
+}
+
+.confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.confirm-btn {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 2px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.confirm-btn--cancel {
+  background: transparent;
+  color: var(--ink-soft);
+  border-color: var(--paper-line);
+}
+
+.confirm-btn--cancel:hover {
+  border-color: var(--ink-soft);
+  color: var(--ink);
+}
+
+.confirm-btn--danger {
+  background: var(--stamp-rejected);
+  color: #fff;
+}
+
+.confirm-btn--danger:hover {
+  background: #8a3327;
+}
+
+/* --- Stats bar: styled like a manual tally/ledger row --- */
+.stats-bar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 4px 20px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--paper-line);
+  flex-wrap: wrap;
+}
+
+.stats-total {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding-right: 20px;
+  border-right: 1px solid var(--paper-line);
+}
+
+.stats-total-number {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 28px;
+  color: var(--ink);
+}
+
+.stats-total-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.stats-tally {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.stats-tally-item {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.stats-tally-number {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.stats-tally-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* --- Filter bar: search + status tabs --- */
+.filter-bar {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  display: block;
+  width: 100%;
+  padding: 9px 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--paper-line);
+  border-radius: 2px;
+  background: var(--paper-card);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 14px;
+}
+
+.search-input::placeholder {
+  color: #B4AC98;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filter-tab {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1px solid var(--paper-line);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-tab:hover {
+  border-color: var(--kraft);
+  color: var(--ink);
+}
+
+.filter-tab--active {
+  background: var(--ink);
+  color: var(--paper-card);
+  border-color: var(--ink);
+}
+
+/* --- Notes toggle & panel --- */
+.notes-toggle-btn {
+  display: block;
+  margin-top: 14px;
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--kraft-dark);
+  cursor: pointer;
+}
+
+.notes-toggle-btn:hover {
+  text-decoration: underline;
+}
+
+.notes-panel {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--paper-line);
+}
+
+.notes-list {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Each note styled like a small memo slip, with a colored left edge */
+.note-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  background: var(--paper);
+  border-left: 3px solid var(--ink-soft);
+  padding: 8px 10px;
+  border-radius: 0 2px 2px 0;
+}
+
+.note-item--reminder {
+  border-left-color: var(--stamp-interview);
+}
+
+.note-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 3px;
+}
+
+.note-item--reminder .note-tag {
+  color: var(--stamp-interview);
+}
+
+.note-content {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.note-reminder-date {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--stamp-interview);
+  margin: 4px 0 0;
+}
+
+.note-delete-btn {
+  background: none;
+  border: none;
+  color: var(--ink-soft);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 2px;
+  flex-shrink: 0;
+}
+
+.note-delete-btn:hover {
+  color: var(--stamp-rejected);
+}
+
+.note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.note-textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--paper-line);
+  border-radius: 2px;
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 14px;
+  resize: vertical;
+}
+
+.note-form-row {
+  display: flex;
+  gap: 8px;
+}
+
+.note-type-select,
+.note-date-input {
+  padding: 6px 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  border: 1px solid var(--paper-line);
+  border-radius: 2px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.note-add-btn {
+  margin-left: auto;
+  padding: 6px 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--paper-card);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.note-add-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Signature element: the "stamp" badge --- */
+.stamp {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+  transform: rotate(-3deg);
+  white-space: nowrap;
+  flex-shrink: 0;
+  mix-blend-mode: multiply;
+}

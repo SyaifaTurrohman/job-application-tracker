@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Environment variables (JANGAN pernah commit file ini — berisi password database)
+.env
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor/OS
+.DS_Store
+.vscode/
+.idea/
+
+# Prisma
+backend/prisma/dev.db

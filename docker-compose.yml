@@ -1,0 +1,53 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: job_tracker_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: job_tracker
+    ports:
+      - "5433:5432"
+    volumes:
+      - job_tracker_data:/var/lib/postgresql/data
+    healthcheck:
+      # Docker cek dulu database-nya beneran siap sebelum backend dinyalakan
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend # build dari Dockerfile di folder ./backend
+    container_name: job_tracker_backend
+    restart: unless-stopped
+    environment:
+      # "postgres" di sini adalah NAMA SERVICE di atas, bukan localhost —
+      # Docker otomatis resolve nama ini ke IP internal container postgres
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/job_tracker
+      PORT: 5000
+    ports:
+      - "5000:5000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      # Bind mount: perubahan kode di komputer kamu langsung kepantul ke container (hot reload)
+      - ./backend/src:/app/src
+      - ./backend/prisma:/app/prisma
+
+  frontend:
+    build: ./frontend
+    container_name: job_tracker_frontend
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/index.html:/app/index.html
+
+volumes:
+  job_tracker_data:
